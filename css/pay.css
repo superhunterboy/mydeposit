@@ -1,0 +1,798 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Microsoft Yahei", Helvetica, Arial, sans-serif;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  border: none !important;
+}
+html {
+  /* min-height: 100%; */
+}
+body {
+  background: #3e3838 url("../img/pay/bg.jpg") no-repeat;
+}
+a {
+  text-decoration: none;
+}
+.box {
+  min-width: 1135px;
+  min-height: 980px;
+  background: url("../img/pay/bg.jpg") no-repeat center;
+}
+.clearfix {
+  clear: both;
+}
+/*头部按钮部分*/
+.head {
+  width: 1100px;
+  height: 53px;
+  margin: 0 auto;
+  padding-top: 250px;
+}
+.head-left {
+  margin-left: 60px;
+  width: 775px;
+  height: 53px;
+  background: url("../img/pay/head-bg.png") no-repeat center;
+  display: inline-block;
+}
+.desc {
+  margin-top: 3px;
+  float: left;
+  width: 193px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+.desc:hover {
+  background: url("../img/pay/nav-hover.png") no-repeat center;
+}
+.desc-1 {
+  margin-right: 35px;
+  width: 178px;
+  height: 53px;
+  background: url("../img/pay/btn-support.png") no-repeat center;
+  float: right;
+  cursor: pointer;
+}
+.desc-1:hover {
+  transform: scale(0.98);
+}
+/*中间内容部分*/
+.content {
+  width: 1131px;
+  margin: 0 auto;
+}
+.shell {
+  margin-top: 18px;
+  margin-left: 71px;
+  width: 1038px;
+  height: 497px;
+  position: relative;
+}
+.tab {
+  padding: 0 0 0 23px;
+  height: 91px;
+  background: url("../img/pay/online-pay-title.png") no-repeat bottom;
+}
+.tab-qr {
+  background: url("../img/pay/qr-pay-title.png") no-repeat bottom;
+}
+.tab-transfer {
+  background: url("../img/pay/transfer-pay-title.png") no-repeat bottom;
+}
+.tab-alipay {
+  background: url("../img/pay/ali-pay-title.png") no-repeat bottom;
+}
+.tab-qq {
+  background: url("../img/pay/qq-pay-title.png") no-repeat bottom;
+}
+.tab-item {
+  margin-top: 35px;
+  margin-right: 10px;
+  width: 120px;
+  height: 33px;
+  line-height: 33px;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  background-image: linear-gradient(to bottom, #747376, #535353);
+  border: 1px solid #535353;
+  border-radius: 5px;
+}
+.tab .tab-active {
+  background-image: linear-gradient(to bottom, #ff1414, #a40100);
+  box-shadow: 1px 1px 5px #a40100;
+  border-color: #ff1414;
+}
+.content-inner {
+  margin-top: 5px;
+}
+.online-pay {
+  width: 100%;
+  height: 100%;
+  /* display: none; */
+}
+.online-pay-form {
+}
+.online-pay-left {
+  padding: 60px 0 0 65px;
+  display: inline-block;
+}
+.online-pay-right {
+  margin-top: 20px;
+  margin-right: 70px;
+  width: 530px;
+  height: 190px;
+  float: right;
+}
+.online-pay-right .txt {
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+.bank-list {
+  padding: 13px 5px 10px 5px;
+  width: 530px;
+  height: 160px;
+  border: 1px solid #db493a;
+  box-shadow: inset 0 0 5px #bcbcbc;
+  background: #fff;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+.bank-list .bank-item {
+  margin-bottom: 1px;
+  width: 120px;
+  height: 35px;
+  display: inline-block;
+  border: 2px solid white;
+  border-bottom: 1px solid none;
+  cursor: pointer;
+}
+
+.bank-list .bank-item img {
+  margin: 1px auto;
+  width: 90%;
+  display: block;
+}
+.bank-list .active {
+  border: 2px solid #cc0000;
+}
+.spot {
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid #cc0000;
+  display: inline-block;
+  vertical-align: middle;
+}
+.active .spot {
+  background: #cc0000;
+}
+.online-pay-bottom {
+  margin-top: 40px;
+  padding-left: 65px;
+  color: #464646;
+}
+.btm-txt {
+  display: inline-block;
+}
+.btm-txt span:first-child {
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+.btm-txt span:last-child {
+  font-size: 12px;
+}
+
+.btn-pay-box {
+  width: 600px;
+  float: right;
+}
+.btn-pay {
+  margin-bottom: 5px;
+  width: 175px;
+  height: 43px;
+  line-height: 34px;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+.btn-pay > .img {
+  width: 145px;
+  height: 45px;
+  display: inline-block;
+}
+
+.btn-pay > .gou {
+  width: 24px;
+  visibility: hidden;
+}
+.btn-pay-box > .active {
+}
+
+.btn-pay-box > .active .gou {
+  visibility: visible;
+}
+.btn-submit {
+  right: 25px;
+  bottom: 15px;
+  width: 110px;
+  height: 27px;
+  line-height: 24px;
+  background-image: linear-gradient(to bottom, #fe503e, #962220);
+  box-shadow: 0px 1px 3px #dedede;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  border: none;
+  border: 1px solid #ffedce;
+  position: absolute;
+}
+.btn-cancel {
+  right: 145px;
+  bottom: 15px;
+  width: 110px;
+  height: 27px;
+  line-height: 24px;
+  background-image: linear-gradient(to bottom, #9b9b9b, #5b5b5b);
+  box-shadow: 0px 1px 3px #dedede;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  border: none;
+  border: 1px solid #ffedce;
+  position: absolute;
+}
+.btn-submit:hover {
+  background: #c9151c;
+}
+.btn-submit:active {
+  -webkit-transform: scale(0.98);
+  transform: scale(0.98);
+}
+
+.input-row {
+  width: 280px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #c1c1c1;
+  box-shadow: inset 1px 1px 3px #c1c1c1;
+  margin-bottom: 40px;
+}
+
+.input-row span {
+  width: 80px;
+  text-align: right;
+  color: #8a8a8a;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.input {
+  margin-top: 1px;
+  width: 185px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 15px;
+  /* color: #8a8a8a; */
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.qrcode-pay {
+  width: 100%;
+  height: 100%;
+  display: none;
+  /* position: relative; */
+}
+.qrcode-pay .wp-1,.qrcode-pay .wp-2,.personal,.merchant,.part1,.part2{
+  display: none;
+}
+.wp-2{
+  position: relative;
+}
+.qrcode-pay .wshow,.wfshow,.pps{
+  display: block;
+}
+.wf-box{
+  margin: 60px 50px 15px 75px;
+  width: 400px;
+  height: 150px;
+  display: inline-block;
+}
+.wf-box .input-row{
+  width: 350px;
+}
+.wf-box .input-row input{
+  width: 250px;
+}
+.qr-box {
+  display: inline-block;
+  /* width: 174px;
+  height: 174px;
+  margin-top: 31px;
+  margin-left: 815px;
+  right:55px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: absolute; */
+}
+.qr-img {
+  top: 38px;
+  right: 55px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: absolute;
+}
+.wp-2.group .qr-img{
+  right: 600px;
+}
+.wp-2
+#wtcode {
+  top: 38px;
+  right: 55px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: absolute;
+}
+#wtcode img{
+  width: 145px;
+  height: 145px;
+}
+.step-img {
+  top: 17px;
+  right: 265px;
+  position: absolute;
+}
+.p2boxstep-img{
+  margin: 15px 0 0 35px;
+}
+.personl-img{
+  margin:10px 0 0 35px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: relative;
+}
+.p2box{
+  width: 100%;
+  height: 220px;
+}
+.qr-pay-bottom {
+  margin-top: 40px;
+  padding-left: 90px;
+  color: #464646;
+}
+
+.qr-pay-bottom .step-txt {
+  margin-top:-10px;
+  margin-left:120px;
+  margin-bottom:10px;
+  width: 580px;
+  height: 85px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #a0a0a0;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow:1px 2px 6px #999898;
+}
+.qr-pay-bottom .step-txt div{
+  padding: 5px 10px;
+  height: 85px;
+  line-height: 25px;
+  vertical-align: top;
+  display: inline-block;
+  border-right: 1px solid #d5d5d5;
+}
+.qr-pay-bottom .step-txt div:last-child{
+  border:none;
+}
+.qr-pay-bottom .step-txt1{
+  width: 165px;
+}
+.qr-pay-bottom .step-txt2{
+  width: 182px;
+}
+.qr-pay-bottom .step-txt3{
+  width: 220px;
+}
+
+.transfer-pay {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.transfer-pay .p1 {
+  display: none;
+}
+
+.transfer-pay-left {
+  margin-top: 58px;
+  margin-left: 85px;
+  width: 280px;
+  height: 205px;
+  display: inline-block;
+}
+
+.transfer-pay-left .input-row {
+  margin-bottom: 10px;
+}
+
+.transfer-pay-right {
+  top: 135px;
+  right: 9px;
+  position: absolute;
+}
+
+.transfer-pay .p2 {
+  margin-bottom: 50px;
+  padding-top: 25px;
+  display: none;
+}
+.transfer-pay .ps {
+  display: block;
+}
+.account-info {
+  width: 840px;
+  height: 140px;
+  margin: 20px 0 0 85px;
+  padding: 20px 5px 20px 5px;
+  box-shadow: inset 0 0 10px gray;
+  background: white;
+  color: #464646;
+  font-size: 16px;
+}
+.account-info .col {
+  vertical-align: top;
+  display: inline-block;
+}
+.account-info .col div {
+  margin-bottom: 12px;
+}
+.ac-tip {
+  margin: 12px 0 0 105px;
+  color: white;
+  font-size: 12px;
+}
+.bank-img {
+  padding: 5px;
+  width: 120px;
+}
+
+#cardno,
+#account-name,
+#bank-name,#ali-bank-name,#ali-cardno,#ali-account-name {
+  font-weight: bold;
+  letter-spacing: 0px;
+}
+
+#btn-copy {
+  width: 115px;
+  height: 29px;
+  background: url("../img/pay/btn-copy.png") no-repeat center;
+  float: right;
+  cursor: pointer;
+  margin-top: 3px;
+  border: none;
+}
+
+#mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  display: none;
+}
+#mask .alert_words {
+  background-color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  text-align: center;
+}
+
+.imp-tips {
+  display: none;
+  right: 170px;
+  bottom: 19px;
+  font-size: 14px;
+  position: absolute;
+}
+
+#d_clip_button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 78px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #e03c30;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #fff;
+  margin-left: 6px;
+  text-align: center;
+}
+
+#ali_clip_button {
+  display: inline-block;
+  vertical-align: middle;
+  width: 78px;
+  height: 26px;
+  line-height: 26px;
+  background-color: #e03c30;
+  border-radius: 3px;
+  font-size: 12px;
+  color: #fff;
+  margin-left: 6px;
+  text-align: center;
+}
+
+.ali-pay {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.alipay-row {
+  padding-left: 25px;
+  width: 380px;
+  height: 53px;
+  line-height: 53px;
+  color: white;
+}
+
+.alipay-row input,
+.alipay-row select {
+  width: 270px;
+  height: 35px;
+}
+.ali-step1 {
+  display: none;
+}
+.ali-pay .btm-txt {
+  left: 30px;
+  bottom: 55px;
+  position: absolute;
+}
+.ali-step1 .bank-select-box {
+  display: none;
+}
+
+.ali-pay .alipay-bank-transfer {
+  display: none;
+}
+
+.ali-pay .alipay-account{
+  display: none;
+}
+.ali-pay .ali-qrcode {
+  margin: 5px 20px;
+  width: 110px;
+  height: 110px;
+  vertical-align: -10px;
+  float: left;
+}
+#mcode img{
+  width: 110px;
+  height: 110px;
+}
+
+.ali-pay .ali-tip {
+  float: left;
+  margin-left:15px;
+  padding-top: 5px;
+}
+.ali-pay .ali-tip p{
+  margin-bottom: 4px;
+}
+
+.ali-pay .alipay-qrcode{
+  display: none;
+}
+
+.ali-pay .show{
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+
+.qq-pay {
+  width: 100%;
+  height: 100%;
+  display: none;
+  /* position: relative; */
+}
+.qq-pay .qp-1,.qq-pay .qp-2,.personal,.merchant,.part1,.part2{
+  display: none;
+}
+.qp-2{
+  position: relative;
+}
+.qq-pay .wshow,.wfshow,.pps{
+  display: block;
+}
+.wf-box{
+  margin: 60px 50px 15px 75px;
+  width: 400px;
+  height: 150px;
+  display: inline-block;
+}
+.wf-box .input-row{
+  width: 350px;
+}
+.wf-box .input-row input{
+  width: 250px;
+}
+.qr-box {
+  display: inline-block;
+}
+.qq-qr-img {
+  top: 38px;
+  right: 55px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: absolute;
+}
+
+.qp-2
+#qqcode {
+  top: 38px;
+  right: 55px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: absolute;
+}
+#qqcode img{
+  width: 145px;
+  height: 145px;
+}
+.step-img {
+  top: 17px;
+  right: 265px;
+  position: absolute;
+}
+.p2boxstep-img{
+  margin: 15px 0 0 35px;
+}
+.personl-img{
+  margin:10px 0 0 35px;
+  width: 160px;
+  height: 160px;
+  border: 8px solid rgba(255, 237, 206, 0.2);
+  box-shadow: 2px 6px 8px rgba(70, 70, 70, 0.3);
+  border-radius: 10px;
+  position: relative;
+}
+.p2box{
+  width: 100%;
+  height: 220px;
+}
+.qr-pay-bottom {
+  margin-top: 40px;
+  padding-left: 90px;
+  color: #464646;
+}
+
+.qr-pay-bottom .step-txt {
+  margin-top:-10px;
+  margin-left:120px;
+  margin-bottom:10px;
+  width: 580px;
+  height: 85px;
+  font-size: 13px;
+  font-weight: bold;
+  border: 1px solid #a0a0a0;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow:1px 2px 6px #999898;
+}
+.qr-pay-bottom .step-txt div{
+  padding: 5px 10px;
+  height: 85px;
+  line-height: 25px;
+  vertical-align: top;
+  display: inline-block;
+  border-right: 1px solid #d5d5d5;
+}
+.qr-pay-bottom .step-txt div:last-child{
+  border:none;
+}
+.qr-pay-bottom .step-txt1{
+  width: 165px;
+}
+.qr-pay-bottom .step-txt2{
+  width: 182px;
+}
+.qr-pay-bottom .step-txt3{
+  width: 220px;
+}
+.notice{
+  margin-top: 66px;
+  height: 30px;
+  margin-left: 80px;
+  margin-right: 50px;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.news-text{
+  width: 100%;
+  position: absolute;
+  line-height: 30px;
+  top: 0;
+  left: 100%; 
+  animation:news 30s linear infinite;
+  -webkit-animation:news 30s linear infinite;
+}
+
+@keyframes news
+{
+from {left:100%;}
+to {left:-100%;}
+}
+
+@-webkit-keyframes news
+{
+  from {left:100%;}
+  to {left:-100%;}
+}
