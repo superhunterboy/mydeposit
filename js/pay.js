@@ -52,20 +52,26 @@ $(function() {
     //   popInfos("正在维护中，请稍后再试。");
     //   return;
     // }
+
    
     if(m_div !== "transfer-pay")$("div[title='点击复制']").hide();
     else $("div[title='点击复制']").show();
     
 
     if (m_div === "qrcode-pay") {
+      $(".imp-tips").hide();
       $(".tab").attr("class", "tab tab-qr");
     } else if (m_div === "transfer-pay") {
+      $(".imp-tips").show();
       $(".tab").attr("class", "tab tab-transfer");
     } else if (m_div === "ali-pay") {
+      $(".imp-tips").hide();
       $(".tab").attr("class", "tab tab-alipay");
     } else if (m_div === "qq-pay") {
+      $(".imp-tips").hide();
       $(".tab").attr("class", "tab tab-qq");
     }  else {
+      $(".imp-tips").hide();
       $(".tab").attr("class", "tab");
     }
 
@@ -76,6 +82,11 @@ $(function() {
   });
 
   $(".bank-list").on("click", ".bank-item", function() {
+    var gftid=$("#gftinputhid").val();
+
+    if(gftid == 69){
+      $("#gftbanknum").css("display","block")
+    }
     $(this).addClass("active") &&
       $(this)
         .siblings()
@@ -85,6 +96,7 @@ $(function() {
   });
 
   $(".btn-pay-box").on("click", ".btn-pay", function() {
+    $("#gftbanknum").css("display","none");
     $(this).addClass("active") &&
       $(this)
         .siblings()
@@ -121,27 +133,61 @@ $(function() {
 
 function doSubmit(formId) {
   var form = $("#" + formId);
-  var account = form.find("input[name=account]").val().replace(/\s+/g, ""),
-    money = form.find("input[name=money]").val().replace(/\s+/g, "");
+  var account = form.find("input[name=account]").val().replace(/\s+/g, "");
+  if(formId=='wechat_pay_form')
+  {
+      var money = form.find("input:radio[name=money]:checked").val();
+  }
+  else  var money = form.find("input[name=money]").val().replace(/\s+/g, "");
   var type = $("#pay_type").val();
 
+  var gftinputhid = $("#gftinputhid").val();
   form.find("input[name=account]").val(account);
   form.find("input[name=money]").val(money);
-  
+
   if (!account) {
-    popInfos("请输入需要存款的会员账号");
+    popInfos("请输入会员账号");
     return false;
   }
   if (!money) {
     popInfos("请输入存款金额");
     return false;
   }
+  if (money<1) {
+    popInfos("最低金额不能低于1元");
+    return false;
+  }
+  // 迅捷微信充值
+  if($("#vendor_type").val() == "48" && $("#pay_type").val() == "0101"){
+    if (money<300) {
+      popInfos("最低金额不能低于300元");
+      return false;
+    }
+    if (money>10000) {
+      popInfos("最低金额不能高于10000元");
+      return false;
+    }
+  }
   if(!type){
     popInfos("请选择支付方式");
     return false;
   }
 
+  $(".btn-submit").addClass("no-pointer");
+  $(".btn-submit").val("处理中...");
 
+  if(gftinputhid == 69 && formId == "pay_form"){
+    var type2 = $("#paytype2").val();
+    var banknumber = $("#banknumber").val();
+    //var fruits = ["1001","1002","1003","1004","1005","1006","1007","1008","1009","1010","1011","1012","1013","1014","1015","1016","1017","1018","1019","1020","1021","1022","1023","1024","1025","1026","1027"];
+    //var a = fruits.indexOf(type2);
+    if(type2 != "" &&　type == '01'){
+      if(!banknumber){
+        popInfos("请输入存款的银行卡号");
+        return false;
+      }
+    }
+  }
 
   memberCheck(account, function(rs) {
     if (rs == 0) form.submit();
@@ -159,6 +205,7 @@ function memberCheck(account, callback) {
     success: function(res) {
       if (res.status == 1) {
         popInfos(res.msg);
+        location.reload();
       } else {
         callback(res.status);
       }
@@ -462,7 +509,7 @@ function getQqQrcode() {
     type: "get",
     dataType: "json",
     data: {
-      type: 3
+      type: 4
     },
     success: function(res) {
       if (res.status == 0) {
@@ -521,7 +568,7 @@ function getQqQrcode() {
 
 function qqPaySubmit() {
   if (qqQrType) {
-    var obj = { type: 3};
+    var obj = { type: 4};
     obj.member = $("#qq-account")
       .val()
       .replace(/\s+/g, "");
@@ -666,15 +713,15 @@ function alipaySubmit(type) {
   switch (type) {
     case 1:
       obj.account = $("#alipay-account")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
       obj.type = 2;
       obj.card_id = $("#bankId").val();
       obj.amount = $("#ab-money").val().replace(/\s+/g, "");
       obj.token = $("#token").val();
       obj.depositor = $("#ab-name")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
 
       if (!obj.amount) {
         popInfos("请确认您的存款金额");
@@ -703,14 +750,14 @@ function alipaySubmit(type) {
       break;
     case 2:
       obj.member = $("#alipay-account")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
       obj.id = $(".alipay-account .ali-qrcode").attr("data-id");
       obj.type = "2";
       obj.money = $("#ac-money").val().replace(/\s+/g, "");
       obj.drawee = $("#ac-name")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
 
       if (!obj.money) {
         popInfos("请确认您的存款金额");
@@ -739,14 +786,14 @@ function alipaySubmit(type) {
       break;
     case 3:
       obj.member = $("#alipay-account")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
       obj.merchant_id = $(".alipay-qrcode .ali-qrcode").attr("data-id");
       obj.type = "2";
       obj.money = $("#aliqr-money").val().replace(/\s+/g, "");
       obj.order = $("#order-no")
-        .val()
-        .replace(/\s+/g, "");
+          .val()
+          .replace(/\s+/g, "");
 
       if (!obj.money) {
         popInfos("请确认您的存款金额");
@@ -775,6 +822,46 @@ function alipaySubmit(type) {
       break;
   }
 }
+
+function myalipaySubmit() {
+  var obj = {};
+  obj.member = $("#alipay-account").val().replace(/\s+/g, "");
+  obj.money = $("#aliqr-money").val().replace(/\s+/g, "");
+
+  if (!obj.member) {
+    popInfos("请输入会员账号");
+    return;
+  }
+  if (!obj.money) {
+    popInfos("请确认您的存款金额");
+    return;
+  }
+
+
+  memberCheck(obj.member, function(rs) {
+    if (rs == 0)
+    {$("#alipayform").submit();
+      // $.ajax({
+      //   url: "../api/addAliQrcodeOrder.php",
+      //   type: "post",
+      //   dataType: "json",
+      //   data: obj,
+      //   success: function(res) {
+      //     if (res.status == 0) {
+      //       location.href=res.qrCodeUrl;
+      //     } else {
+      //       popInfos(res.msg, 2000);
+      //     }
+      //   },
+      //   error:function () {
+      //     popInfos('网络错误，请刷新重试!', 2000);
+      //   }
+      // });
+    }
+  });
+
+}
+
 
 function back() {
   $("#ab-money").val("");

@@ -136,6 +136,18 @@ function doSubmit(formId) {
         }
     }
 
+    // 迅捷微信充值
+    if($("#vendor_type").val() == "48" && $("#pay_type").val() == "0101"){
+        if (money<300) {
+            popInfos("最低金额不能低于300元");
+            return false;
+        }
+        if (money>10000) {
+            popInfos("最低金额不能高于10000元");
+            return false;
+        }
+    }
+
     memberCheck(account, function(rs) {
         if (rs == 0) {
             var url = "form.php";
@@ -395,7 +407,8 @@ function getQQrcode() {
         type: "get",
         dataType: "json",
         data: {
-            type: 3
+            //type: 3
+            type: 4
         },
         success: function(res) {
             layer.closeAll();
@@ -547,7 +560,7 @@ function wechatPaySubmit(wechatQrType) {
 }
 
 function qqPaySubmit(wechatQrType) {
-    var obj = { type: 3 };
+    var obj = { type: 4 };
     obj.member = $("#qqpay-account")
         .val()
         .replace(/\s+/g, "");

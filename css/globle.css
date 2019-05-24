@@ -1,0 +1,599 @@
+ul,li{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+.page{
+    min-height: calc((920 * 100vw) / 1920);
+    background: url(../images/bg2.png) no-repeat #000;
+    background-size: 100%;
+    font-size: 0.8vw;
+}
+.top{
+    width: 100%;
+    height: calc((85 * 100vw) / 1920);
+    color: #ffffff;
+    background: url(../images/nav-bg.png?v=1.6978347823) no-repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 16.5vw;
+    box-sizing: border-box;
+}
+.logo{
+    width: calc((437 * 100vw) / 1920);
+    height: calc((64 * 100vw) / 1920);
+    background: url(../images/logo.png) no-repeat;
+    background-size: 100%;
+}
+.nav{
+    margin-left: 6vw;
+    position: relative;
+    z-index: 1;
+}
+.nav .nav-item{
+    padding: 1.1vw 0.8vw;
+    text-align: center;
+    float: left;
+    font-size: 0.9vw;
+    cursor: pointer;
+}
+.nav .nav-item .nav-item-text{
+    text-decoration: none;
+    color: white;
+}
+.nav .nav-item:nth-child(4){
+    margin-left: .8vw;
+}
+.nav .nav-item:nth-child(5){
+    margin-left: .4vw;
+    color: #fdbf63;
+}
+.nav .nav-item:nth-child(5) .nav-item-text,
+.nav .nav-item:nth-child(5) .sub-name{
+    color: #fdbf63;
+}
+.nav .nav-item .sub-name{
+    color: #8c8b8b;
+    font-size: 0.4vw;
+}
+.nav .nav-item:nth-child(6){
+    margin-left: .4vw;
+}
+.item_actived{
+    width: 100%;
+    height: calc((85 * 100vw) / 1920);
+    position: absolute;
+    left: 0;
+    top: -0.2vw;
+    z-index: -1;
+    width: 5.5vw;
+    background: linear-gradient(to bottom, #151515, #b9945b);
+    transform: skew(-12deg);
+    display: none;
+    /* transition: all 0.4s; */
+}
+.nav .nav-item:hover .sub-name{
+    color: #ffffff;
+}
+
+.notice{
+    background: rgba(0, 0, 0, 0.41);
+    height: calc((48 * 100vw) / 1920);
+    padding: 0 16.5vw;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+.notice .news-text{
+    margin-left: 1vw;
+}
+.notice marquee span{
+    margin-left: 2vw;
+}
+.icon{
+    width: calc((22 * 100vw) / 1920);
+    height: calc((20 * 100vw) / 1920);
+    display: inline-block;
+}
+.icon-horn{
+    background: url(../images/icon-horn.png) no-repeat;
+    background-size: 100%;
+}
+
+.content{
+    width: 64vw;
+    min-height: calc((535 * 100vw) / 1920);
+    margin: 0 auto;
+    margin-top: 2vw;
+    box-sizing: border-box;
+    background: rgba(28, 28, 28, 0.8);
+    position: relative;
+    /* padding-top: 6vw; */
+    margin-bottom: 2vw;
+    overflow: hidden;
+}
+.content-left{
+    width: 15vw;
+    float: left;
+}
+.user-waper{
+    width: 14.2vw;
+    height: 5vw;
+    display: inline-block;
+    background: url(../images/user-bg.png?2123888) no-repeat;
+    background-size: 100%;
+    margin: 0.4vw;
+}
+.user-info{
+    position: absolute;
+    width: 7.4vw;
+    height: 1.2vw;
+    top: 1.8vw;
+    left: 7vw;
+    text-align: center;
+    line-height: 1.2vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #412406;
+    font-size: 1.1vw;
+    text-shadow: 0px 0.03vw #ffecd1;
+}
+
+.recharge{
+    overflow: hidden;
+}
+.recharge .left{
+    width: 15vw;
+    float: left;
+}
+.pay-list{
+    margin-left: 0.4vw;
+}
+.pay-list .pay-item{
+    height: 2.85vw;
+    background: rgba(16, 16, 16, 0.86);
+    margin-bottom: 0.2vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 3vw;
+    font-size: 0.9vw;
+    cursor: pointer;
+}
+.pay-list .pay-item .icon{
+    margin-right: 1.6vw;
+}
+.pay-list .pay-item .pay-item-text{
+    margin-right: 1vw;
+}
+.pay-list .pay-item:hover{
+    color: #ffc674;
+}
+.pay-list .pay-item_actived{
+    color: #ffc674;
+    background: rgba(28, 28, 28, 0.59);
+}
+.icon-wechat{
+    width: calc((27 * 100vw) / 1920);
+    height: calc((27 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/wechartPay.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.wechat:hover .icon-wechat{
+    background: url(../images/wechartPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+/* .pay-list .pay-item:nth-child(1):hover .icon-wechat{
+    background: url(../images/wechartPay-hover.png) no-repeat;
+    background-size: 100%;
+} */
+.pay-item.wechat.pay-item_actived .icon-wechat{
+    background: url(../images/wechartPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-alipay{
+    width: calc((27 * 100vw) / 1920);
+    height: calc((27 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/aliPay.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.alipay:hover .icon-alipay{
+    background: url(../images/aliPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.alipay:hover.pay-item_actived .icon-alipay{
+    background: url(../images/aliPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-qq{
+    width: calc((24 * 100vw) / 1920);
+    height: calc((26 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/qqPay.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.qq:hover .icon-qq{
+    background: url(../images/qqPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.qq.pay-item_actived .icon-qq{
+    background: url(../images/qqPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-netbank{
+    width: calc((27 * 100vw) / 1920);
+    height: calc((17 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/onlineBank.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.netbank:hover .icon-netbank{
+    background: url(../images/onlineBank-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.netbank.pay-item_actived .icon-netbank{
+    background: url(../images/onlineBank-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-yunpay{
+    width: calc((32 * 100vw) / 1920);
+    height: calc((22 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/yunpay.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.yunpay:hover .icon-yunpay{
+    background: url(../images/yunpay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.yunpay.pay-item_actived .icon-yunpay{
+    background: url(../images/yunpay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-jd{
+    width: calc((27 * 100vw) / 1920);
+    height: calc((27 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/jdPay.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.jd:hover .icon-jd{
+    background: url(../images/jdPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.jd.pay-item_actived .icon-jd{
+    background: url(../images/jdPay-hover.png) no-repeat;
+    background-size: 100%;
+}
+.icon-union{
+    width: calc((31 * 100vw) / 1920);
+    height: calc((19 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/union.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.union:hover .icon-union{
+    background: url(../images/union-hover.png) no-repeat;
+    background-size: 100%;
+}
+.pay-item.union.pay-item_actived .icon-union{
+    background: url(../images/union-hover.png) no-repeat;
+    background-size: 100%;
+}
+
+.right{
+    width: 48.4vw;
+    float: left;
+    margin-left: 0.6vw;
+}
+
+.content-right{
+    width: 49vw;
+    float: left;
+}
+.content-right .right-title{
+    width: 48.6vw;
+    height: 5.6vw;
+    display: inline-block;
+    background: url(../images/tag.png) no-repeat;
+    background-size: 100%;
+    margin: 0.38vw 0 0 0.4vw;
+}
+.channel-waper{
+    display: none;
+}
+.channel-loading_hide,
+.channel-no-list_hide{
+    display: none;
+}
+.channel-loading_show,
+.channel-no-list_show{
+    color: white;
+    height: 21vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.channel-list{
+    min-height: 18vw;
+}
+.channel-list .channel-item{
+    width: 12vw;
+    display: inline-block;
+    margin: 0.5vw 1.9vw;
+    cursor: pointer;
+    float: left;
+}
+.channel-list .channel-item .channel-name{
+    color: #ffc674;
+    border: 0.02vw solid #ffc674;
+    padding: 0.5vw;
+    text-align: center;
+    margin-bottom: 0.5vw;
+    font-size: 1vw;
+}
+.channel-list .channel-item .channel-tip{
+    color: white;
+    font-size: 0.6vw;
+    text-align: center;
+}
+.channel-list .channel-item.channel-item_selected .channel-name{
+    background: #daaa65;
+    color: white;
+}
+.channel-bottom{
+    overflow: hidden;
+    padding: 1vw;
+}
+.channel-bottom .recharge-tip{
+    color: white;
+    float: left;
+}
+.channel-bottom .btn{
+    float: right;
+}
+
+.footer{
+    width: 100%;
+    height: calc((287 * 100vw) / 1920);
+    display: inline-block;
+    background: url(../images/footer-bg.png?v=1.9865416347823) no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+.footer .service{
+    width: calc((103 * 100vw) / 1920);
+    height: calc((60 * 100vw) / 1920);
+    display: inline-block;
+    /*background: url(../images/service.png) no-repeat;*/
+    background-size: 100%;
+    position: absolute;
+    top: 5.5vw;
+    left: 17vw;
+    cursor: pointer;
+}
+
+/* 弹出框 */
+.dialog{
+    display: none;
+    filter: blur(0px);
+}
+.dialog .dialog-box{
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+	-o-transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 300;
+    width: 32vw;
+    margin: -27vw 50vw;
+    padding: 0.1vw 0.2vw;
+    color: #ad986d;
+    /* background: url(../images/dialog.png) no-repeat;
+    background-size: 100%; */
+    background: #1c1c1c;
+    border: 0.05vw solid #ffc674;
+}
+.dialog .dialog-mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+	z-index: 200
+}
+.dialog .dialog-title{
+    width: 31.4vw;
+    height: 3.6vw;
+    font-size: 1.2vw;
+    background: url(../images/title-bg.png) no-repeat;
+    background-size: 100%;
+    border-bottom: 0.05vw solid #131313;
+    padding: 0.5vw 2.5vw;
+    box-sizing: border-box;
+}
+.dialog .dialog-title .dialog-title-sub{
+    font-size: 0.4vw;
+}
+.dialog .dialog-content{
+    padding: 1vw 2.4vw;
+}
+.dialog .login-form{
+    margin-top: 2vw;
+}
+.dialog .confirm{
+    /* margin-top: 1.4vw; */
+}
+.dialog .form-item{
+    margin-bottom: 0.6vw;
+    align-items: center;
+    display: flex;
+}
+.dialog .confirm .form-item:last-child{
+    margin-bottom: 0;
+}
+.form-item label{
+    white-space: nowrap;
+    width: 4vw;
+}
+.input{
+    height: 1.2vw;
+    width: 16.8vw;
+    background: #313030;
+    border: none;
+    padding: 0.2vw 0.3vw;
+    outline: none;
+    color: #ad986d;
+    flex: 1;
+}
+.input.disabled{
+    background: #1c1c1c;
+}
+.money-list .money-item{
+    background: #bc9760;
+    color: white;
+    padding: 0.2vw 0;
+    border-radius: 0.2vw;
+    cursor: pointer;
+    margin-right: 0.6vw;
+    margin-bottom: 0.5vw;
+    width: 4vw;
+    text-align: center;
+    display: inline-block;
+}
+.money-list .money-item:nth-child(5){
+    margin-right: 0;    
+}
+.dialog .money-item_actived{
+    background: #926511;
+}
+.err-message{
+    font-size: 0.4vw;
+    margin: 0.4vw 0;
+    color: #e4272c;
+    margin-left: 4.2vw;
+    opacity: 0;
+}
+.btn-waper{
+    text-align: right;
+}
+.btn{
+    display: inline-block;
+    width: 7vw;
+    background: #bc9760;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 0.3vw;
+    cursor: pointer;
+    margin-left: 1vw;
+}
+.offline{
+
+}
+.offline .img-waper{
+    overflow: hidden;
+    position: relative;
+}
+.offline .img-waper .img{
+    background: url(../images/qr-waper.png) no-repeat;
+    background-size: 100%;
+    width: 40%;
+    padding: 0.8vw;
+    box-sizing: border-box;
+    display: inline-block;
+    float: left;
+}
+.offline .img-waper .img img{
+    width: 100%;
+}
+.offline .img-waper .img-msg{
+    display: inline-block;
+    width: 12.7vw;
+    box-sizing: border-box;
+    padding: 0.5vw 0 0 1vw;
+    height: 14.2vw;
+}
+.offline .img-msg span{
+    margin-right: 0.8vw;
+    font-size: 0.8vw;
+}
+.offline .img-waper .close{
+    position: absolute;
+    top: 12.4vw;
+    right: 0;
+}
+.bank-waper{
+    
+}
+.bank-waper .bank-item{
+    display: flex;
+    margin-bottom: 0.5vw;
+}
+.bank-waper .bank-item label{
+    width: 4.5vw;
+}
+.bank-waper .bank-item div,
+.bank-waper .bank-item input{
+    flex-grow: 1;
+}
+
+.msg-success{
+    height: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 线下扫码 */
+.scan-code{
+    overflow: hidden;
+}
+.scan-code .scan-code-waper{
+    overflow: hidden
+}
+.scan-code .qr-form{
+    width: 16vw;
+    float: left;
+}
+.scan-code .img-waper{
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 10.6vw;
+    margin-left: 1vw;
+}
+.scan-code .img-waper .img{
+    width: 100%;
+}
+
+/* 云闪付 */
+.offline{
+    overflow: hidden;
+}
+.offline .yunWaper{
+    overflow: hidden;
+}
+.offline .qr-form{
+    float: left;
+    width: 15vw;
+}
+.offline .qr-waper{
+    float: left;
+    width: 10vw;
+    margin-left: 0.6vw;
+}
+.offline .qr-waper img{
+    width: 100%;
+}

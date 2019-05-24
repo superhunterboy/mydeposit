@@ -266,7 +266,7 @@ div {
 .btn-submit:active {
   background: #861235;
 }
-.qr-pay,.qq-pay {
+.qr-pay,.qq-pay, .qrcode-pay {
   /* height: 14.7rem; */
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;

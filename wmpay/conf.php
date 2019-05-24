@@ -6,8 +6,8 @@ session_save_path(__DIR__ . '/../data/');
 session_start();
 
 define('COMPANY_NO', '00001');
-define('PAYMENT_API_DOMAIN', 'http://www.aoya.local'); // http://jsmw672.com
-define('WECHATALIPAYQRCODEURL', 'http://www.aoya.local'); // https://51pphzp.com
+include "domain.php";
+
 function isJSON($str)
 {
     json_decode($str);

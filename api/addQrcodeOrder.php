@@ -28,7 +28,7 @@ $drawee = preg_match("/^([\x{4e00}-\x{9fa5}]|[a-zA-Z0-9_-])+$/u", $data['drawee'
 if($drawee != 1) {
     exit(json_encode(['status'=>1, 'msg'=>'非法姓名格式!']));
 }
-if (empty($data['type']) || !in_array($data['type'], ['1', '2', '3'])) {
+if (empty($data['type']) || !in_array($data['type'], ['1', '2', '3' ,'4'])) {
     exit(json_encode(['status'=>1, 'msg'=>'未知支付类型!']));
 }
 

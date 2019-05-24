@@ -20,6 +20,8 @@ $baiduPayType ='';
 $wapBaiduPayType ='';
 $unionPayType ='';
 $wapUnionPayType ='';
+$yunPayType ='';
+$wapYunPayType ='';
 
 if ($payTypes) {
     // type： 0 系统未配置、1 雅付、2 闪付、3 讯宝、4 乐盈
@@ -36,6 +38,8 @@ if ($payTypes) {
     $wapJdPayType       = key($payTypes['data'][11]);
     $wapBaiduPayType    = key($payTypes['data'][12]);
     $wapUnionPayType    = key($payTypes['data'][13]);
+    $yunPayType         = key($payTypes['data'][14]);
+    $wapYunPayType      = key($payTypes['data'][15]);
 }
 
 $_token = md5(uniqid(rand(), true));
@@ -107,7 +111,7 @@ $_SESSION['_token'] = $_token;
                             </div>
                             <div>
                                 <span>支付宝昵称：</span>
-                                <input id="ct-name" type="text" placeholder="请输入您的支付宝昵称" />
+                                <input id="ct-name" type="text" placeholder="请输入您的支付宝真实姓名" />
                             </div>
                         </div>
 
@@ -140,7 +144,7 @@ $_SESSION['_token'] = $_token;
                         </div>
                         <div>
                             <span>支付宝昵称：</span>
-                            <input id="act-name" type="text" placeholder="请输入您的支付宝昵称" />
+                            <input id="act-name" type="text" placeholder="请输入您的支付宝真实姓名" />
                         </div>
                     </div>
 
@@ -310,8 +314,50 @@ $_SESSION['_token'] = $_token;
                 </div>
             </div>
         </div>
-
+        <!--云闪付-->
         <div class="qq-modal-page">
+            <div class="qq-personal">
+                <div class="c-head">
+                        <a onclick="qback()">
+                            < 返回</a>云闪付</div>
+
+                <div class="c-content">
+                    <div class="act-qr-code">
+                        <img class="pay2qq-code" src=""/>
+                    </div>
+
+                    <div class="c-tform">
+                        <div>
+                            <span>存款金额：</span>
+                            <input id="qq-money"  type="text" placeholder="请确认您的存款金额" onkeyup="this.value=this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')"
+                                onafterpaste="this.value=this.value.replace(/[^\d{1,}\.\d{1,}|\d{1,}]/g,'')" />
+                        </div>
+                        <div>
+                            <span>账户姓名：</span>
+                            <input id="qq-drawee"  type="text" placeholder="请输入云闪付绑定卡真实姓名" />
+                        </div>
+                    </div> 
+                    <!--
+                    <div class="c-tips" style="font-size:.3rem;">
+                        <h3 style="color:red;">注：扫描二维码后在“转账留言”填写澳亚国际会员帐号再进行充值。</h3>
+                        <p style="margin-bottom:.2rem;">操作说明：</p>
+                        <p>1、长按二维码，选择保存图片至相册；</p>
+                        <p>2、打开手机QQ，请点击右上角“+”，选择“扫一扫”；
+                            <br/>&nbsp;a、安卓手机点击扫码界面右上角"设置"按钮，选择"从相册选取二维码"；
+                            <br/>&nbsp;b、苹果手机点击扫码界面右上角"相册"按钮；</p>
+                        <p>3、选择保存的二维码图片； </p>
+                        <p style="color:red;">4、输入充值金额，点击“转账留言”填写澳亚国际会员帐号再进行充值；</p>
+                        <p>5、转账成功后，输入存款信息，点击<span style="color:red;">“确认以上信息并提交”</span>按钮。</p>
+                    </div>
+                    -->
+                    <div class="c-btn-submit" onclick="qqPaySubmit('1')">确认以上信息并提交</div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+                <div class="qq-modal-page">
             <div class="qq-personal">
                 <div class="c-head">
                         <a onclick="qback()">
@@ -332,7 +378,7 @@ $_SESSION['_token'] = $_token;
                             <span>QQ账户昵称：</span>
                             <input id="qq-drawee"  type="text" placeholder="请输入您的QQ账户昵称" />
                         </div>
-                    </div> 
+                    </div>
 
                     <div class="c-tips" style="font-size:.3rem;">
                         <h3 style="color:red;">注：扫描二维码后在“转账留言”填写澳亚国际会员帐号再进行充值。</h3>
@@ -351,10 +397,13 @@ $_SESSION['_token'] = $_token;
             </div>
         </div>
 
+        -->
+
+
         <div class="c-wrapper">
             <div class="head clearfix">
                 <div class="head-left">
-                    <div class="desc desc-2" style="margin-left:2px;" onclick=window.location='https://9661o.com/'>返回首页</div>
+                    <div class="desc desc-2" style="margin-left:2px;" onclick=window.location='http://ay223.com/'>返回首页</div>
                     <div class="desc desc-3" onclick=window.location='http://xingmim.com/'>活动申请大厅</div>
                 </div>
                 <div class="desc-1" onclick=window.location="https://static.meiqia.com/dist/standalone.html?_=t&eid=93887"></div>
@@ -362,10 +411,12 @@ $_SESSION['_token'] = $_token;
             <div class="content">
                 <div class="tab">
                     <div class="tab-item tab-active" m-div="online-pay">在线支付</div>
+                    <div class="tab-item" m-div="qq-pay">云闪付</div>
                     <div class="tab-item" m-div="transfer">转账</div>
-                    <div class="tab-item" m-div="qr-pay">微信</div>
+                    <div class="tab-item" m-div="qrcode-pay">微信</div>
                     <div class="tab-item apli-tab-item" m-div="ali-pay">支付宝</div>
-                    <div class="tab-item" m-div="qq-pay">QQ</div>
+
+                    <!--<div class="tab-item" m-div="qq-pay">QQ</div>-->
 
                 </div>
                 <div class="content-inner">
@@ -481,10 +532,61 @@ $_SESSION['_token'] = $_token;
                                     <img class="img img-selected" src="./img/pay/union-pay-active.png" />
                                 </a>
                                 <?php } ?>
+
+                                <?php if ($payTypes['payStatus']['wapYun'] == 1) { ?><!--银联-->
+                                <a data-type="14" data-value="<?php echo $wapYunPayType; ?>" data-vendor="<?php echo $payTypes['type']['wapYun']; ?>" class="yun">
+                                    <img class="gou" src="./img/pay/gou.png" />
+                                    <img class="img img-selected" src="./img/pay/yun-pay-active.png" />
+                                </a>
+                                <?php } elseif ($payTypes['payStatus']['yun'] == 1) { ?>
+                                    <a data-type="14" data-value="<?php echo $yunPayType; ?>" data-vendor="<?php echo $payTypes['type']['yun']; ?>" class="yun">
+                                        <img class="gou" src="./img/pay/gou.png" />
+                                        <img class="img img-selected" src="./img/pay/yun-pay-active.png" />
+                                    </a>
+                                <?php } ?>
+
                             </div>
                             <input class="btn-submit" type="button" onclick="doSubmit('pay_form')" value="确认提交" />
                         </form>
                     </div>
+
+
+
+
+                    <div class="qrcode-pay">
+                        <div class="online-pay">
+                            <form method="post" action="./wmpay/payment.php" id="wechat_pay_form">
+                                <input type="hidden" name="companyNo" value="<?php echo COMPANY_NO; ?>">
+                                <input type="hidden" name="vendorType" id="vendor_type" value="<?php echo $payTypes['type']['wechat']; ?>">
+                                <input type="hidden" name="device" value="1">
+                                <input type="hidden" id="token" name="token" value="<?php echo $_token; ?>">
+                                <input type="hidden" name="pay_type" id="pay_type" value="<?php echo $wechatPayType;; ?>" />
+                                <input type="hidden" name="paytype2" id="paytype2" value="" />
+
+
+                                <div class="online-pay-left">
+                                    <div class="form-row">
+                                        <span>会员账号：</span>
+                                        <input type="text" class="input" name="account" placeholder="请输入需要存款的会员账号">
+                                    </div>
+                                    <div class="form-row">
+                                        <span>存款金额：</span>
+                                        <input type="text" class="input" name="money" placeholder="请输入存款金额">
+                                    </div>
+                                </div>
+
+                                <div class="online-pay-bottom">
+                                   <!-- <div class="btm-txt">
+                                        <span>其他在线支付</span>
+                                        <span> ※ 转帐完成后请保留单据作为核对证明。</span>
+                                    </div>-->
+                                    <input type="button" class="btn-submit" onclick="doSubmit('wechat_pay_form')" value="下一步" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
 
                     <div class="qr-pay">
                         <div class="qp1 qshow">
@@ -628,7 +730,7 @@ $_SESSION['_token'] = $_token;
         <script type="text/javascript" src="../js/zeroClipboard.min.js"></script>
         <script type="text/javascript" src="../js/qrcode.min.js"></script>
         <script type="text/javascript" src="./js/layer.js"></script>
-        <script type="text/javascript" src="./js/pay.js"></script>
+        <script type="text/javascript" src="./js/pay.js?v=5646234567487878"></script>
         <script>
         var _hmt = _hmt || [];
         (function() {

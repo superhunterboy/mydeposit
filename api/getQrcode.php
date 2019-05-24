@@ -7,7 +7,7 @@ if (!IS_AJAX) {
 }
 
 $type       = $_GET['type'] ?? '1';
-if (!in_array($type, ['1', '2', '3'])) {
+if (!in_array($type, ['1', '2', '3' ,'4'])) {
     exit(json_encode(['status'=>1, 'msg'=>'错误支付方式']));
 }
 $payType    = $_GET['payType'] ?? '2';
@@ -18,6 +18,8 @@ if ($type == '1') {
     $uri = '/getSingleWechat';
 } elseif ($type == '3') {
     $uri = '/getSingleQQ';
+} elseif ($type == '4') {
+    $uri = '/getSingleYUN';
 } else {
     $uri = '/getSingleAlipay/' . $payType;
 }
